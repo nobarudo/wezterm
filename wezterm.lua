@@ -5,7 +5,7 @@ local config = wezterm.config_builder()
 config.automatically_reload_config = true
 config.window_close_confirmation = "NeverPrompt"
 config.default_cursor_style = "BlinkingBar"
-config.color_scheme = "Tokyo Night"
+config.color_scheme = "Tokyo Night Moon"
 
 config.font_size = 10
 config.use_ime = true
@@ -13,6 +13,7 @@ config.use_ime = true
 config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 config.show_new_tab_button_in_tab_bar = false
+config.window_decorations = "RESIZE"
 
 config.colors = {
 	tab_bar = {
