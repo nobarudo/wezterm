@@ -14,11 +14,13 @@ config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
 config.show_new_tab_button_in_tab_bar = false
 config.window_decorations = "RESIZE"
+config.initial_cols = 150
+config.initial_rows = 50
 config.window_background_opacity = 0.95
 
 config.colors = {
 	tab_bar = {
-		inactive_tab_edge = "none",
+		background = "none",
 	},
 }
 
