@@ -7,22 +7,16 @@ config.window_close_confirmation = "NeverPrompt"
 config.default_cursor_style = "BlinkingBar"
 config.color_scheme = "nord"
 
-config.font_size = 10
+config.font_size = 10.5
 config.use_ime = true
 
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
 config.show_new_tab_button_in_tab_bar = false
 config.window_decorations = "RESIZE"
-config.initial_cols = 150
-config.initial_rows = 50
-config.window_background_opacity = 0.95
-
-config.colors = {
-	tab_bar = {
-		background = "none",
-	},
-}
+config.initial_cols = 180
+config.initial_rows = 40
+config.window_background_opacity = 0.9
 
 local keys = {}
 
