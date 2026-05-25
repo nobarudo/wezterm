@@ -29,6 +29,22 @@ table.insert(keys, {
 local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
 tabline.setup({
 	options = { theme = "nord" },
+	sections = {
+		tab_active = {
+			"index",
+			{ "process", padding = { left = 0, right = 1 } },
+			"",
+			{ "cwd", padding = { left = 1, right = 0 } },
+			{ "zoomed", padding = 1 },
+		},
+		tab_inactive = {
+			"index",
+			{ "process", padding = { left = 0, right = 1 } },
+			"󰉋",
+			{ "cwd", padding = { left = 1, right = 0 } },
+			{ "zoomed", padding = 1 },
+		},
+	},
 })
 tabline.setup()
 
