@@ -18,7 +18,15 @@ config.initial_cols = 180
 config.initial_rows = 40
 config.window_background_opacity = 0.9
 
+config.tab_max_width = 25
+
 local keys = {}
+
+config.colors = {
+	tab_bar = {
+		background = "none",
+	},
+}
 
 table.insert(keys, {
 	key = "d",
