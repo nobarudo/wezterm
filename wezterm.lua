@@ -1,5 +1,6 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
+local act = require("wezterm").action
 
 -- 基本設定
 config.automatically_reload_config = true
@@ -20,19 +21,37 @@ config.window_background_opacity = 0.9
 
 config.tab_max_width = 25
 
-local keys = {}
-
 config.colors = {
 	tab_bar = {
 		background = "none",
 	},
 }
 
-table.insert(keys, {
-	key = "d",
-	mods = "CTRL|SHIFT",
-	action = wezterm.action.CloseCurrentPane({ confirm = false }),
-})
+config.keys = {
+	{
+		mods = "CTRL|SHIFT",
+		key = "s",
+		action = act.ShowLauncherArgs({ flags = "WORKSPACES", title = "Select workspace" }),
+	},
+	{
+		-- Rename workspace
+		mods = "CTRL|SHIFT",
+		key = "$",
+		action = act.PromptInputLine({
+			description = "(wezterm) Set workspace title:",
+			action = wezterm.action_callback(function(win, pane, line)
+				if line then
+					wezterm.mux.rename_workspace(wezterm.mux.get_active_workspace(), line)
+				end
+			end),
+		}),
+	},
+	{
+		key = "d",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.CloseCurrentPane({ confirm = false }),
+	},
+}
 
 local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
 tabline.setup({
