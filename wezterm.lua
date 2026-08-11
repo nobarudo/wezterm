@@ -73,6 +73,9 @@ config.keys = {
 		mods = "LEADER",
 		action = wezterm.action.CloseCurrentPane({ confirm = false }),
 	},
+	{ key = "[", mods = "LEADER", action = act.ActivateCopyMode },
+	{ key = "/", mods = "LEADER", action = act.Search("CurrentSelectionOrEmptyString") },
+	{ key = ":", mods = "LEADER", action = act.ActivateCommandPalette },
 }
 
 local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
