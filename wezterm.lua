@@ -70,7 +70,7 @@ config.keys = {
 	},
 	{
 		key = "d",
-		mods = "CTRL|SHIFT",
+		mods = "LEADER",
 		action = wezterm.action.CloseCurrentPane({ confirm = false }),
 	},
 }
