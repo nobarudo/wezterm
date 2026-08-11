@@ -27,21 +27,29 @@ config.colors = {
 	},
 }
 
+config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 2000 }
+
 config.keys = {
 	{
-		key = "%",
-		mods = "CTRL|SHIFT",
+		key = "5",
+		mods = "LEADER",
 		action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
 	},
 	{
-		key = "#",
-		mods = "CTRL|SHIFT",
+		key = "3",
+		mods = "LEADER",
 		action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
 	},
-	{ key = "h", mods = "CTRL|SHIFT", action = wezterm.action.ActivatePaneDirection("Left") },
-	{ key = "j", mods = "CTRL|SHIFT", action = wezterm.action.ActivatePaneDirection("Down") },
-	{ key = "k", mods = "CTRL|SHIFT", action = wezterm.action.ActivatePaneDirection("Up") },
-	{ key = "l", mods = "CTRL|SHIFT", action = wezterm.action.ActivatePaneDirection("Right") },
+	{ key = "x", mods = "LEADER", action = act({ CloseCurrentPane = { confirm = true } }) },
+	{ key = "h", mods = "LEADER", action = wezterm.action.ActivatePaneDirection("Left") },
+	{ key = "j", mods = "LEADER", action = wezterm.action.ActivatePaneDirection("Down") },
+	{ key = "k", mods = "LEADER", action = wezterm.action.ActivatePaneDirection("Up") },
+	{ key = "l", mods = "LEADER", action = wezterm.action.ActivatePaneDirection("Right") },
+	{ key = "z", mods = "LEADER", action = act.TogglePaneZoomState },
+	{ key = "h", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Left", 2 }) },
+	{ key = "l", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Right", 2 }) },
+	{ key = "k", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Up", 2 }) },
+	{ key = "j", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Down", 2 }) },
 	{
 		mods = "CTRL|SHIFT",
 		key = "s",
@@ -87,6 +95,7 @@ tabline.setup({
 		},
 	},
 })
-tabline.setup()
+
+tabline.apply_to_config(config)
 
 return config
