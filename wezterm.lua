@@ -51,14 +51,19 @@ config.keys = {
 	{ key = "k", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Up", 2 }) },
 	{ key = "j", mods = "CTRL|SHIFT", action = act.AdjustPaneSize({ "Down", 2 }) },
 	{
-		mods = "CTRL|SHIFT",
+		key = "d",
+		mods = "LEADER",
+		action = wezterm.action.CloseCurrentPane({ confirm = false }),
+	},
+	{
+		mods = "LEADER",
 		key = "s",
 		action = act.ShowLauncherArgs({ flags = "WORKSPACES", title = "Select workspace" }),
 	},
 	{
 		-- Rename workspace
-		mods = "CTRL|SHIFT",
-		key = "$",
+		mods = "LEADER",
+		key = "4",
 		action = act.PromptInputLine({
 			description = "(wezterm) Set workspace title:",
 			action = wezterm.action_callback(function(win, pane, line)
